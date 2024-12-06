@@ -14,6 +14,6 @@
 
 
 | First variable  | Second variavle | ... | label |
-| ------------- | ------------- | ... | ----- |
+| ------------- | ------------- | ----- | ----- |
 | XXX  | ZZZ  | ... | label1  |
 | YYY  | ZZZ  | ... | label1  |

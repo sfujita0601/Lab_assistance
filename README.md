@@ -13,7 +13,7 @@
 - 次のような形式のテーブルに整形すれば使えると思います。
 
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| First variable  | Second variavle | ... | label |
+| ------------- | ------------- | ... | ----- |
+| XXX  | ZZZ  | ... | label1  |
+| YYY  | ZZZ  | ... | label1  |

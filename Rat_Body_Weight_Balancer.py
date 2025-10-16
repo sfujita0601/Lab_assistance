@@ -50,6 +50,23 @@ if st.button("計算"):
                     "mean": np.mean(w)
                 })
 
+
+            # 平均・標準誤差の棒グラフ＋個体値の散布図
+            import matplotlib.pyplot as plt
+            means = [np.mean(w) for w in group_weights_list]
+            ses = [np.std(w, ddof=1)/np.sqrt(len(w)) for w in group_weights_list]
+            fig, ax = plt.subplots(figsize=(6,4))
+            x = np.arange(len(means))
+            ax.bar(x, means, yerr=ses, capsize=5, color='skyblue', alpha=0.7, label='Mean ± SE')
+            for i, w in enumerate(group_weights_list):
+                ax.scatter([i]*len(w), w, color='k', zorder=10, alpha=0.8)
+            ax.set_xticks(x)
+            ax.set_xticklabels([f'Group {i+1}' for i in x])
+            ax.set_ylabel('Weight')
+            ax.set_title('Group Means ± SE and Individual Weights')
+            ax.legend()
+            st.pyplot(fig)
+
             # ANOVA検定
             f_stat, p_val = f_oneway(*group_weights_list)
 

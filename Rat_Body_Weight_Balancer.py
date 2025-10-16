@@ -4,7 +4,7 @@ import numpy as np
 from scipy.stats import f_oneway
 
 
-PASSWORD = "dosai"
+PASSWORD = "dousai"
 
 pw = st.text_input("パスワードを入力", type="password")
 if pw != PASSWORD:
@@ -31,10 +31,10 @@ if st.button("計算"):
         else:
             n_per_group = n // n_groups
 
-            # ラウンドロビン割付
-            sorted_idx = sorted(range(n), key=lambda i: weights[i], reverse=True)
+            # ランダム割付
+            rand_idx = np.random.permutation(n)
             groups = [[] for _ in range(n_groups)]
-            for i, rat in enumerate(sorted_idx):
+            for i, rat in enumerate(rand_idx):
                 groups[i % n_groups].append(rat)
 
             group_info = []

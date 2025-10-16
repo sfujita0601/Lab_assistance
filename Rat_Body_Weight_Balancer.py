@@ -31,11 +31,13 @@ if st.button("計算"):
         else:
             n_per_group = n // n_groups
 
-            # ランダム割付
-            rand_idx = np.random.permutation(n)
+            # 体重を大きい順にソートし、群の順番をランダムにして割付
+            sorted_idx = sorted(range(n), key=lambda i: weights[i], reverse=True)
+            group_order = np.random.permutation(n_groups)
             groups = [[] for _ in range(n_groups)]
-            for i, rat in enumerate(rand_idx):
-                groups[i % n_groups].append(rat)
+            for i, rat in enumerate(sorted_idx):
+                group = group_order[i % n_groups]
+                groups[group].append(rat)
 
             group_info = []
             group_weights_list = []
